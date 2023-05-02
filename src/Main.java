@@ -89,23 +89,17 @@ public class Main {
          */
         System.out.println("Задача 4");
         char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-
-        int spaceIndex = 0;
-        for (int i = 0; i < reverseFullName.length; i++) {
-            if (reverseFullName[i] == ' ') {
-                spaceIndex = i;
-                break;
-            }
-        }
-
+        boolean isSpace = false;
         for (int i = reverseFullName.length - 1; i >= 0; i--) {
-            if (i == spaceIndex) {
-                System.out.print(' ');
-                continue;
+            if (reverseFullName[i] == ' ') {
+                isSpace = true;
+            } else if (isSpace) {
+                System.out.print(" " + reverseFullName[i]);
+                isSpace = false;
+            } else {
+                System.out.print(reverseFullName[i]);
             }
-            System.out.print(reverseFullName[i]);
         }
-
 
     }
 }
